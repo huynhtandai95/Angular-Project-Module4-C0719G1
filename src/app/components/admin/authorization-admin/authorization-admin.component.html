@@ -1,0 +1,89 @@
+<div class="container">
+    <div class="row">
+        <i class="fas fa-users-cog text-dark mr-2" style="font-size: 25px;"></i>
+        <h4>Cấp quyền Admin</h4>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-12 px-5">
+            <div>
+                <div class="container">
+                    <h2>Thêm nhân viên</h2>
+                    <form action="" (ngSubmit)="onClickAddEmployee()" [formGroup]="formEmloyee">
+                        <div class="form-group">
+                            <label for="fullName">Họ và Tên</label>
+                            <input type="text" class="form-control" id="email" placeholder="Họ và Tên" formControlName="fullName">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Địa chỉ</label>
+                            <input type="text" class="form-control" id="address" placeholder="Nhập địa chỉ" formControlName="address">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Nhập email" formControlName="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="level">Cấp quyền</label>
+                            <select name="" id="" class="form-control" formControlName="level">
+                                <option *ngFor="let level of levels" value="{{level.id}}">{{level.userLevelOfName}}</option>
+                            </select>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary">Tạo tài khoản</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <h4>Danh sách quản trị viên:</h4>
+    <!-- <div class="row container d-flex justify-content-end align-items-center my-2">
+            <form action="">
+                <div class="d-flex">
+                    <input type="text" class="form-control form-control-sm mr-3" style="width: 200px;"
+                       >
+                    <button class="btn btn-sm btn-success">Tìm kiếm</button>
+                </div>
+            </form>
+        </div> -->
+    <div class="row mt-4  ">
+
+
+        <table class="table table-striped table-sm mt-3">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Họ và tên</th>
+                    <th>Quyền hạn</th>
+                    <th>Trạng thái</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employee of employees">
+                    <td> <span class="">{{employee.id}}</span> </td>
+                    <td>{{employee.email}}</td>
+                    <td>{{employee.fullName}}</td>
+                    <td>{{employee.level_of_users.userLevelOfName}}</td>
+                    <td><button *ngIf="employee.statusOfUserId==1" class="btn btn-primary" (click)="lockEmployee(employee)"><i class="fas fa-lock-open"></i></button>
+                        <button *ngIf="employee.statusOfUserId==2" class="btn btn-success" (click)="unLockEmployee(employee)"><i class="fas fa-lock"></i></button></td>
+                    <td> <button class="btn btn-danger ml-3" (click)="deleltEmployee(employee)"><i class="fas fa-trash-alt"></i></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- <div class="row mt-3 d-flex justify-content-end">
+        <ul class="pagination">
+            <li (click)="goToPreviousPage(user.id)" class="page-item"><a class="page-link">Previous</a></li>
+            <ng-container *ngFor="let paginationArray of paginationArrays">
+                <li (click)="goToPageOfNumber(paginationArray, user.id)" class="page-item"><a class="page-link"
+                        [ngStyle]="paginationArray===selectedPage? backgroundColorOfSelectedPage : backgroundColorOfNotSelectedPage">{{paginationArray}}</a>
+                </li>
+            </ng-container>
+            <li (click)="goToNextPage(user.id)" class="page-item"><a class="page-link">Next</a></li>
+        </ul>
+    </div> -->
+</div>

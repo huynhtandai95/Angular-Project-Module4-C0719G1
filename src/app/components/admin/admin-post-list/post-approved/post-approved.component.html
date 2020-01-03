@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="row">
+        <i class="fas fa-users-cog text-dark mr-2" style="font-size: 30px;"></i>
+        <h3>Danh sách bài đăng đã phê duyệt</h3>
+    </div>
+
+    <div class="row d-flex justify-content-between align-items-center my-2">
+        <h6>Tổng cộng: {{resultPost}} bài đăng</h6>
+
+        <form action="" (ngSubmit)="onClickSearch()" [formGroup]="formSearch">
+            <div class="d-flex">
+                <input type="text" class="form-control form-control-sm mr-3" style="width: 200px;"
+                    formControlName="title">
+                <button class="btn btn-sm btn-success">Tìm kiếm</button>
+            </div>
+        </form>
+    </div>
+    
+    <div class="row">
+        <!-- <h4>Danh sách các thành viên</h4> -->
+        <table class="table table-striped table-sm mt-3">
+            <thead>
+                <tr>
+                    <th>Tiêu đề</th>
+                    <th>Loại bài viết</th>
+                    <th>Danh mục</th>
+                    <th>Ngày đăng</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let postAppred of postAppreds ">
+                    <!-- <tr> -->
+                    <td>{{postAppred.title}}</td>
+                    <td>{{postAppred.post_of_types.postOfTypeName}}</td>
+                    <td>{{postAppred.categories.categoryName}}</td>
+                    <td>{{postAppred.created_at}}</td>
+                    <td class="d-flex justify-content-end mr-4">
+                        <a class="mr-3" [routerLink]="['/admin/post-details-approved',postAppred.id]"
+                            routerLinkActive="router-link-active">xem</a>
+                        <a (click)="changeAvailability(postAppred)">gỡ bỏ</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="container d-flex justify-content-end">
+            <div *ngIf="isCheck==true">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" (click)="lastPost()"> Previous</a></li>
+                    <div *ngFor="let paginateArrayPost of paginateArrayPosts">
+
+                        <li class="page-item"><a class="page-link"
+                                (click)="onClickGetPostAppred(paginateArrayPost)">{{paginateArrayPost}}</a></li>
+                    </div>
+                    <li class="page-item"><a class="page-link" (click)="nextPost()">Next</a></li>
+                </ul>
+            </div>
+            <div *ngIf="isCheck==false">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" (click)="last()"> Previous</a></li>
+                    <div *ngFor="let paginateArray of paginateArrays">
+
+                        <li class="page-item"><a class="page-link"
+                                (click)="clickSearchPostAppredPaginate(paginateArray)">{{paginateArray}}</a></li>
+                    </div>
+                    <li class="page-item"><a class="page-link" (click)="next()">Next</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

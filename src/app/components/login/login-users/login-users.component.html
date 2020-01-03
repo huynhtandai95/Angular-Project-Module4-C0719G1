@@ -1,0 +1,37 @@
+<div class="d-flex justify-content-center flex-column" id="login">
+    <div id="login-small">
+        <div class="mt-2" id="login-aa">
+            <a>Đăng nhập</a>
+        </div>
+    <form action="" (ngSubmit)="onClickLogin()" [formGroup]="formLogin">
+        <div class="mt-5">
+            <div class="" id="login-b">
+                <b class="text-right">Email</b><a class="text-danger">(*)</a>
+            </div>
+            <div class="" id="login-input">
+                <input type="text" class="form-control" formControlName="email">
+            </div>
+            <div class="mt-4" id="login-b">
+                <b class="text-right">Mật khẩu</b><a class="text-danger">(*)</a>
+            </div>
+            <div class="mt-3" id="login-input">
+                <input type="password"  class="form-control" formControlName="password">
+            </div>
+        </div>
+<div class=" container-fluid w-75">
+        <p class="container-fluid text-center" style="color: red;">{{dataLogin}}</p>
+    </div>
+        <div id="checkbox" class="mt-3">
+            <input type="checkbox"> Nhớ tài khoản
+        </div>
+        <div id="login-submit" class="mt-3">
+            <button type="submit">Đăng nhập</button>
+        </div>
+      
+    </form>
+        <div  id="sigin">
+            <p>Đăng ký ngay <a [routerLink]="['/register']" routerLinkActive="router-link-active" >tại đây! </a></p>
+        </div>
+    </div>
+   
+</div>

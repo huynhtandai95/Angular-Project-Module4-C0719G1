@@ -1,0 +1,112 @@
+<!-- *********** Start Menu Bar ************ -->
+<div class="container-fluid bg-warning d-flex justify-content-center" style="position: fixed; top: 0px;z-index: 200;">
+    <div class="row px-3" style="height:45px;width: 1000px; max-width: 1000px;">
+        <div class="col-3 d-flex align-items-center">
+            <img (click)=backToListPost() src="https://static.chotot.com/storage/marketplace/nha_white_logo.png"
+                style="height: 30px;">
+        </div>
+        <div class="col-9 d-flex justify-content-end">
+            <div class="h-100 d-flex align-items-center mr-3">
+                <i class="fas fa-search mr-1" style="font-size: 20px;"></i><span style="font-size: 16px;">Tìm rao
+                    vặt</span>
+            </div>
+            <div class="h-100 d-flex align-items-center mr-3">
+                <i class="far fa-bell mr-1" style="font-size: 20px;"></i><span style="font-size: 16px;">Thông
+                    báo</span>
+            </div>
+            <div class="h-100 d-flex align-items-center mr-3">
+                <i class="far fa-comments mr-1" style="font-size: 20px;"></i><span style="font-size: 16px;">Chat</span>
+            </div>
+            <div class="h-100 d-flex align-items-center mr-3">
+                <i class="fas fa-user-circle mr-1" style="font-size: 20px;"></i><span style="font-size: 16px;">Tôi
+                    bán</span>
+            </div>
+            <div class="h-100 d-flex align-items-center mr-3">
+                <i class="fas fa-ellipsis-h mr-1" style="font-size: 25px;"></i><span style="font-size: 16px;">
+                    Thêm</span>
+            </div>
+            <div class="h-100 d-flex align-items-center">
+                <button class="btn btn-sm font-weight-bold" style="background-color: #fc9807;"><span
+                        style="color: white; font-size: 12px;">ĐĂNG
+                        TIN</span></button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- *********** End Menu Bar ************ -->
+
+<!--editues-->
+<div class="container mt-5">
+    <div class="row mb-3">
+        <div class="col">
+            <h2>Sửa thông tin cá nhân</h2>
+            <div class="card mb-3" style="max-width: 1200px;">
+                 <div class="row no-gutters">
+                            <div class="col-md-5 ">
+                                    <div class="card text-center">
+                                            <div class="card-body">
+                                                    <label>
+                                                    <img class="rounded-circle" [src]="urlImage"  style="height: 200px; width: 200px;" >
+                                                    <input style="display: none;" type="file" (change)="selectFile($event)">
+                                                </label>
+                                            </div>
+                                            <button class="btn btn-primary mx-auto" style="max-width: 70%;"(click)="upload()">Chọn ảnh đại diện</button>
+                                    </div>
+                                    
+                            </div>
+                            <div class="card bg-light col-md-7 " >
+                                <div class="card-body m-0">
+                                        <form #edit="ngForm" >
+
+                                                <div class="form-group row">
+                                                  <label for="staticEmail" class="col-sm-3 col-form-label">Họ Tên</label>
+                                                  <div class="col-sm-9">
+                                
+                                                        <input type="text" class="form-control"name="fullName" [(ngModel)]="editusers.fullName" 
+                                                      value="{{edituser?.fullName}}" #fullName="ngModel" required>
+                                                      <div [hidden]="fullName.valid || fullName.pristine" class="alert alert-danger">
+                                                      họ tên không được để trống
+                                                        </div>
+                                                      
+                            
+                                                  </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                  <label for="inputPassword" class="col-sm-3 col-form-label">Địa Chỉ</label>
+                                                  <div class="col-sm-9">
+                                                    <input type="text" class="form-control"   name="address" [(ngModel)]="editusers.address" 
+                                                   value="{{edituser?.address}}" #address="ngModel" required>
+                                                   <div [hidden]="address.valid || address.pristine" class="alert alert-danger">
+                                                  địa chỉ không được để trống
+                                                    </div>
+                                                  
+                                                  </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                        <label for="inputPassword" class="col-sm-3 col-form-label">Số Điện Thoại</label>
+                                                        <div class="col-sm-9">
+                                                          <input type="text" class="form-control" name="phoneNumber" [(ngModel)]="editusers.phoneNumber" 
+                                                       value="{{edituser?.phoneNumber}}"  #phoneNumber="ngModel" pattern="^(([\+][8][4])|[0])([0-9]{9,10})$"required>
+                                                       <div [hidden]="phoneNumber.valid || phoneNumber.pristine" class="alert alert-danger">
+                                                       điên thoại phải theo đúng định dạng. 
+                                                        </div>
+                                                      
+                                                        </div>
+                                                </div>
+                                                  <button class="btn btn-primary" style="float: right;"(click)="savecheck();">Lưu Lại</button>
+                                        
+                                              </form>    
+                                      
+                                </div>
+                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+<!-- ****************** Start Footer *********************** -->
+
+<!-- ****************** End Footer *********************** -->
+

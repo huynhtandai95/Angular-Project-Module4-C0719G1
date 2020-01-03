@@ -1,0 +1,125 @@
+<div class="container">
+    <div class="row">
+        <i class="fas fa-users-cog text-dark mr-2" style="font-size: 30px;"></i>
+        <h3>Setting</h3>
+    </div>
+
+
+    <div class="row mt-3">
+        <div class="col-12">
+            <div class="card w-100">
+                <div class="card-header py-2 bg-info">Danh Mục Vùng Miền</div>
+                <div class="card-body">
+                    <form class="d-flex" [formGroup]="formCreateNewRegion">
+                        <input class="form-control form-control-sm mr-4" type="text" placeholder="Mã Vùng Miền"
+                            style="width: 26%;" formControlName="regionCode">
+                        <input class="form-control form-control-sm mr-4" type="text" placeholder="Tên Vùng Miền"
+                            style="width: 40%;" formControlName="regionName">
+                        <button style="width: 150px;" class="btn btn-sm btn-success"
+                            (click)="createNewRegion()">Save</button>
+                    </form>
+
+                    <table class="table table-sm table-striped mt-3">
+                        <thead>
+                            <tr>
+                                <th>Mã</th>
+                                <th>Tên Danh Mục</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let region of regions">
+                                <td>{{region.regionCode}}</td>
+                                <td>{{region.regionName}}</td>
+                                <td>
+                                    <i (click)="openDialogEditRegion(region)" class="far fa-edit mr-3 text-warning"
+                                        style="cursor: pointer;"></i>
+                                    <i (click)="openDialogConfirmDeleteRegion(region)"
+                                        class="fas fa-trash-alt text-danger" style="cursor: pointer;"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <hr class="my-4">
+
+
+    <div class="row mt-3">
+        <div class="col-6">
+            <div class="card w-100">
+                <div class="card-header py-2 bg-info">Danh Mục Bất Động Sản</div>
+                <div class="card-body">
+                    <form class="d-flex justify-content-between" [formGroup]="formCreateNewCategory">
+                        <input class="form-control form-control-sm" type="text" placeholder="Mã Danh Mục"
+                            style="width: 32%;" formControlName="categoryCode">
+                        <input class="form-control form-control-sm" type="text" placeholder="Tên Danh Mục"
+                            style="width: 65%;" formControlName="categoryName">
+                    </form>
+                    <button class="btn btn-sm btn-success mt-3" (click)="createNewCategory()">Save</button>
+                    <table class="table table-sm table-striped mt-3">
+                        <thead>
+                            <tr>
+                                <th>Mã</th>
+                                <th>Tên Danh Mục</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let category of categorys">
+                                <td>{{category.categoryCode}}</td>
+                                <td>{{category.categoryName}}</td>
+                                <td>
+                                    <i (click)="openDialogEditCategory(category)" class="far fa-edit mr-3 text-warning"
+                                        style="cursor: pointer;"></i>
+                                    <i class="fas fa-trash-alt text-danger" style="cursor: pointer;"
+                                        (click)="openDialogConfirmDeleteCategory(category)"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="card w-100">
+                <div class="card-header py-2 bg-info">Danh Mục Loại Tin</div>
+                <div class="card-body">
+                    <form class="d-flex justify-content-between" [formGroup]="formCreateNewPostOfType">
+                        <input class="form-control form-control-sm" type="text" placeholder="Mã Loại Tin"
+                            style="width: 32%;" formControlName="postOfTypeCode">
+                        <input class="form-control form-control-sm" type="text" placeholder="Tên Loại Tin"
+                            style="width: 65%;" formControlName="postOfTypeName">
+                    </form>
+                    <button (click)="createNewPostOfType()" class="btn btn-sm btn-success mt-3">Save</button>
+                    <table class="table table-sm table-striped mt-3">
+                        <thead>
+                            <tr>
+                                <th>Mã</th>
+                                <th>Tên Danh Mục</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let postOfType of postOfTypes">
+                                <td>{{postOfType.postOfTypeCode}}</td>
+                                <td>{{postOfType.postOfTypeName}}</td>
+                                <td>
+                                    <i (click)="openDialogEditPostOfType(postOfType)" class=" far fa-edit mr-3
+                                        text-warning" style="cursor: pointer;"></i>
+                                    <i (click)="openDialogConfirmDeletePostOfType(postOfType)"
+                                        class="fas fa-trash-alt text-danger" style="cursor: pointer;"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

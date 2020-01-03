@@ -1,0 +1,107 @@
+<div class="signin-big  d-flex justify-content-center flex-column">
+    <div class="singin-small mt-5">
+        <div class="signin-h2">
+            <h2>Đăng ký thành viên</h2>
+        </div>
+        <div class="container-fluid">
+            <hr>
+        </div>
+        <div class="row">
+
+            <div class="signin col-6">
+                <form action="" (ngSubmit)="onClickRegister()" [formGroup]="formRegister">
+                    <div id="singin-input">
+                        <div class="d-flex">
+                            <span class="text-danger mr-3">(*)</span>
+                            <input type="text" class="form-control" placeholder="Họ và tên" formControlName="fullName">
+                        </div>
+                        <p *ngIf="errors?.fullName" style="color: red;">{{errors.fullName}}</p>
+                        <p class="text-danger" *ngIf="formRegister.controls.fullName.dirty
+                        && formRegister.controls.fullName.errors?.required&&!errors?.fullName">
+                            * Vui lòng nhập Họ và tên</p>
+                    </div>
+
+                    <div id="singin-input">
+                        <div class="d-flex">
+                            <span class="text-danger mr-3 mt-3">(*)</span>
+                            <input type="text" class="form-control mt-3" placeholder="Email" formControlName="email">
+                        </div>
+                        <p *ngIf="errors?.email" style="color: red;">{{errors.email}}</p>
+                        <p class="text-danger" *ngIf="formRegister.controls.email.dirty
+    && formRegister.controls.email.errors?.required&&!errors?.email">
+                            * Vui lòng nhập email</p>
+                        <p class="text-danger" *ngIf="formRegister.controls.email.dirty
+    && formRegister.controls.email.errors?.pattern&&!errors?.email">
+                            * Định dang email không đúng</p>
+                    </div>
+
+
+                    <div id="singin-input">
+                            <div class="d-flex">
+                                    <span class="text-danger mr-3 mt-3">(*)</span>
+                        <input type="text" class="form-control mt-3" placeholder="Địa chỉ" formControlName="address">
+                        </div>
+                        <p *ngIf="errors?.address" style="color: red;">{{errors.address}}</p>
+                        <p class="text-danger" *ngIf="formRegister.controls.address.dirty
+                    && formRegister.controls.address.errors?.required&&!errors?.address">
+                            * Vui lòng nhập địa chỉ</p>
+                    </div>
+
+
+                    <div id="singin-input">
+                            <div class="d-flex">
+                                    <span class="text-danger mr-3 mt-3">(*)</span>
+                        <input type="text" class="form-control mt-3" placeholder="Số điện thoại"
+                            formControlName="phoneNumber">
+                            </div>
+                        <p *ngIf="errors?.phoneNumber" style="color: red;">{{errors.phoneNumber}}</p>
+                        <p class="text-danger" *ngIf="formRegister.controls.phoneNumber.dirty
+    && formRegister.controls.phoneNumber.errors?.required&&!errors?.phoneNumber">
+                            * Vui lòng nhập số điện thoại</p>
+                        <p class="text-danger" *ngIf="formRegister.controls.phoneNumber.dirty
+    && formRegister.controls.phoneNumber.errors?.pattern&&!errors?.phoneNumber">
+                            * Số điện thoại bắt đầu bằng 0 hoặc +84 gồm 10 hoặc 11 số</p>
+                    </div>
+
+
+                    <div id="singin-input">
+                            <div class="d-flex">
+                                    <span class="text-danger mr-3 mt-3">(*)</span>
+                        <input type="password" class="form-control mt-3" placeholder="Mật khẩu"
+                            formControlName="password">
+                            </div>
+                        <p *ngIf="errors?.password" style="color: red;">{{errors.password}}</p>
+                        <p class="text-danger" *ngIf="formRegister.controls.password.dirty
+                        && formRegister.controls.password.errors?.required&&!errors?.password">
+                            * Vui lòng nhập mật khẩu</p>
+                    </div>
+
+
+                    <div id="singin-input">
+                            <div class="d-flex">
+                                    <span class="text-danger mr-3 mt-3">(*)</span>
+                        <input type="password" class="form-control mt-3" placeholder="Xác nhận mật khẩu"
+                            formControlName="passwordConfirm">
+                            </div>
+                        <p *ngIf="errors?.passwordConfirm" style="color: red;">{{errors.passwordConfirm}}</p>
+                        <p class="text-danger" *ngIf="formRegister.controls.passwordConfirm.dirty
+                        && formRegister.controls.passwordConfirm.errors?.required&&!errors?.passwordConfirm">
+                            * Vui lòng nhập lại mật khẩu</p>
+                    </div>
+
+
+                    <div id="singin-button">
+                        <button type="submit">Đăng ký</button>
+                    </div>
+                </form>
+                <p class="text-center mt-3">Đăng nhập ngay <a id="login" [routerLink]="['/login']"
+                        routerLinkActive="router-link-active">tại đây!</a></p>
+            </div>
+
+            <div class="col-6">
+                <img src="../../../assets/img/logoCodegym.png" alt="" height="200px" width="auto">
+
+            </div>
+        </div>
+    </div>
+</div>

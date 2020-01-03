@@ -1,0 +1,172 @@
+<mat-dialog-content class="mt-4" style="font-size:12px">
+    <form action="" [formGroup]="formSearchGeneral">
+        <div class="row">
+            <div class="col-3 font-weight-bold d-flex justify-content-end">Người Đăng
+                Tin:</div>
+            <div class="col-9">
+                <div class="form-check-inline" style="width: 80px;">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="sellerId" value="0"
+                            formControlName="sellerId" [checked]='true'>Tất Cả
+                    </label>
+                </div>
+                <div class="form-check-inline" style="width: 80px;">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="sellerId" value="1"
+                            formControlName="sellerId">Cá
+                        Nhân
+                    </label>
+                </div>
+                <div class="form-check-inline disabled" style="width: 80px;">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="sellerId" value="2"
+                            formControlName="sellerId">Công
+                        Ty
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-3 font-weight-bold d-flex justify-content-end">Loại Tin:</div>
+            <div class="col-9">
+                <div class="form-check-inline" style="width: 80px;">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="postOfTypeId" value="1"
+                            formControlName="postOfTypeId" [checked]='true'>Cần Bán
+                    </label>
+                </div>
+                <div class="form-check-inline" style="width: 80px;">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="postOfTypeId" value="2"
+                            formControlName="postOfTypeId">Cần Mua
+                    </label>
+                </div>
+                <div class="form-check-inline disabled" style="width: 80px;">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="postOfTypeId" value="3"
+                            formControlName="postOfTypeId">Cần Thuê
+                    </label>
+                </div>
+                <div class="form-check-inline disabled" style="width: 150px;">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="postOfTypeId" value="4"
+                            formControlName="postOfTypeId">Cho Thuê
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-3 font-weight-bold d-flex justify-content-end">Tình Trạng:</div>
+            <div class="col-9">
+                <div class="form-check-inline" style="width: 80px;">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="statusOfPostId" value="0"
+                            formControlName="statusOfPostId" [checked]='true'>Tất Cả
+                    </label>
+                </div>
+                <div class="form-check-inline" style="width: 80px;">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="statusOfPostId" value="1"
+                            formControlName="statusOfPostId">Mới
+                    </label>
+                </div>
+                <div class="form-check-inline disabled" style="width: 150px;">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="statusOfPostId" value="2"
+                            formControlName="statusOfPostId">Đã
+                        Sử Dụng
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-3 font-weight-bold d-flex justify-content-end">Danh Mục:</div>
+            <div class="col-9">
+                <select class="form-control" name="" id="" formControlName="categoryId" [value]="0">
+                    <option value="0">Tất Cả</option>
+                    <option value="1">Chung Cư</option>
+                    <option value="2">Đất Nền</option>
+                    <option value="3">Mặt Bằng</option>
+                    <option value="4">Nhà</option>
+                    <option value="5">Phòng Trọ</option>
+                    <option value="6">Tòa Nhà</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-3 font-weight-bold d-flex justify-content-end">Vùng Miền:</div>
+            <div class="col-9">
+                <select class="form-control" name="" id="" formControlName="regionId" [value]="0">
+                    <option value="0">Tất Cả</option>
+                    <option value="1">Hà Nội</option>
+                    <option value="2">Huế</option>
+                    <option value="3">Đà Nẵng</option>
+                    <option value="4">TP.HCM</option>
+                    <option value="5">Cà Mau</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-3 font-weight-bold d-flex justify-content-end">Diện Tích:</div>
+            <div class="col-9">
+                <select class="form-control" name="areaRangeId" id="" formControlName="areaRangeId" [value]="0">
+                    <option value="0">Tất Cả</option>
+                    <option value="1">Dưới 100m2</option>
+                    <option value="2">100~200m2</option>
+                    <option value="3">200~300m2</option>
+                    <option value="4">Trên 300m2</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-3 font-weight-bold d-flex justify-content-end">Hướng:</div>
+            <div class="col-9">
+                <select class="form-control" name="" id="" formControlName="directionId" [value]="0">
+                    <option value="0">Tất Cả</option>
+                    <option value="1">Hướng Đông</option>
+                    <option value="2">Hướng Tây</option>
+                    <option value="3">Hướng Nam</option>
+                    <option value="4">Hướng Bắc</option>
+                    <option value="5">Đông Nam</option>
+                    <option value="6">Đông Bắc</option>
+                    <option value="7">Tây Nam</option>
+                    <option value="8">Tây Bắc</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-3 font-weight-bold d-flex justify-content-end">Giá:</div>
+            <div class="col-9">
+                <select class="form-control" name="priceRangeId" id="" formControlName="priceRangeId" [value]="0">
+                    <option value="0">Tất Cả</option>
+                    <option value="1">Dưới 5 Triệu</option>
+                    <option value="2">5~10 Triệu</option>
+                    <option value="3">10~20 Triệu</option>
+                    <option value="4">20~50 Triệu</option>
+                    <option value="5">Trên 50 Triệu</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- <div class="row mt-2">
+            <div class="col-3 font-weight-bold d-flex justify-content-end"></div>
+            <div class="col-9">
+                <input class="mr-2" type="checkbox" value="ableComposition" name="ableComposition"
+                    formControlName="ableComposition">
+                <span>Giá có thể thỏa thuận</span>
+            </div>
+        </div> -->
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions class="d-flex justify-content-end mt-3 mb-2">
+    <button mat-dialog-close mat-raised-button (click)="cancelSearchPostGeneral()" color="primary">Cancel</button>
+    <button mat-dialog-close mat-raised-button (click)="searchPostGeneral()" color="warn">Tìm Kiếm</button>
+</mat-dialog-actions>

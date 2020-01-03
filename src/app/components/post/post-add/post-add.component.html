@@ -1,0 +1,251 @@
+<div class="container-fluid d-flex justify-content-center" style="background-color:#f7f7f7;">
+    <div class="container mt-5 mb-2">
+
+        <h2>Đăng tin</h2>
+
+        <hr>
+        <!-- Thông tin liên hệ -->
+        <div class="card">
+            <div class="card-header">
+                <h5>Thông tin liên hệ</h5>
+            </div>
+            <div class="card-body">
+                <div class="container" id="infoContact">
+                    <div class="form-group row">
+                        <label class="col col-sm-2">Họ và tên: </label>
+                        <div class="col">
+                            <span>{{userDetails.fullName}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col col-sm-2">Email: </label>
+                        <div class="col">
+                            <span>{{userDetails.email}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col col-sm-2">Địa chỉ: </label>
+                        <div class="col">
+                            <span>{{userDetails.address}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col col-sm-2">Số điện thoại: </label>
+                        <div class="col">
+                            <span> {{userDetails.phoneNumber}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- End Thông tin liên hệ -->
+        <hr>
+        <!-- Nội dung đăng tin-->
+        <div class="content-post">
+            <h5>Nội dung đăng tin <small style="color: #FFBF00;"> (Vui lòng điền đầy đủ tất cả các mục)</small> </h5>
+            <hr>
+            <div class="container">
+                <div class="row">
+                    <div class="col bg-white">
+                        <div class="card border-0 col-10 float-right">
+                            <div class="card-body">
+                                <form [formGroup]="formPosts" (ngSubmit)="onClickAdd()">
+                                    <div class="form-group row">
+                                        <label for="inputPassword" class="col col-sm-2 col-form-label">Danh mục: </label>
+                                        <div class="col">
+                                            <select class="form-control form-control-sm" formControlName="categoryId">
+                                            <option *ngFor="let category of categories" value="{{category.id}}">
+                                                {{category.categoryName}}</option>
+                                        </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="inputPassword" class="col col-sm-2 col-form-label">Vùng miền: </label>
+                                        <div class="col">
+                                            <select class="form-control form-control-sm" formControlName="regionId">
+                                            <option *ngFor="let region of regions" value="{{region.id}}">
+                                                {{region.regionName}}</option>
+                                        </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="inputPassword" class="col col-sm-2 col-form-label">Bạn Là: </label>
+                                        <div class="col d-flex">
+
+                                            <div class="form-check pr-4">
+                                                <input class="form-check-input" type="radio" value="1" formControlName="sellerId">
+                                                <label class="form-check-label">
+                                                Cá Nhân
+                                            </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" value="2" formControlName="sellerId">
+                                                <label class="form-check-label">
+                                                Công ty
+                                            </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="inputPassword" class="col col-sm-2 col-form-label">Bạn Đăng tin:
+                                    </label>
+                                        <div class="col d-flex">
+                                            <div class="form-check pr-4">
+                                                <input class="form-check-input" type="radio" value="1" formControlName="postOfTypeId">
+                                                <label class="form-check-label">
+                                                Cần bán
+                                            </label>
+                                            </div>
+                                            <div class="form-check pr-4">
+                                                <input class="form-check-input" type="radio" value="2" formControlName="postOfTypeId">
+                                                <label class="form-check-label">
+                                                Cần mua
+                                            </label>
+                                            </div>
+                                            <div class="form-check pr-4">
+                                                <input class="form-check-input" type="radio" value="3" formControlName="postOfTypeId">
+                                                <label class="form-check-label">
+                                                Cần thuê
+                                            </label>
+                                            </div>
+                                            <div class="form-check pr-4">
+                                                <input class="form-check-input" type="radio" value="4" formControlName="postOfTypeId">
+                                                <label class="form-check-label">
+                                                Cho thuê
+                                            </label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="inputPassword" class="col col-sm-2 col-form-label">Tình trạng: </label>
+                                        <div class="col d-flex">
+
+                                            <div class="form-check pr-4">
+                                                <input class="form-check-input" type="radio" value="1" formControlName="statusOfPostId">
+                                                <label class="form-check-label">
+                                                Mới
+                                            </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" value="2" formControlName="statusOfPostId">
+                                                <label class="form-check-label">
+                                                Đã sử dụng
+                                            </label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col col-sm-2 col-form-label">Địa chỉ: <span
+                                            style="color: red">(*)</span> </label>
+                                        <div class="col">
+                                            <input type="text" class="form-control form-control-sm" placeholder="" formControlName="address">
+                                            <span class="badge badge-danger" *ngIf="formPosts.controls.address.errors?.required && (formPosts.controls.address.touched || formPosts.controls.address.dirty)">
+                                            Không được để trống</span>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col col-sm-2 col-form-label">Diện tích: <span
+                                            style="color: red">(*)</span> </label>
+                                        <div class="col">
+                                            <input type="text" class="form-control form-control-sm" placeholder="" formControlName="area">
+                                            <span class="badge badge-danger" *ngIf="formPosts.controls.area.errors?.required && (formPosts.controls.area.touched || formPosts.controls.area.dirty)">
+                                            Không được để trống</span>
+                                            <span class="badge badge-danger" *ngIf="formPosts.controls.area.dirty && formPosts.controls.area.errors?.pattern">Sai
+                                            định dạng dữ Liệu ! Chỉ được nhập số</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="inputPassword" class="col col-sm-2 col-form-label">Hướng: </label>
+                                        <div class="col">
+                                            <select class="form-control form-control-sm" formControlName="directionId">
+                                            <option *ngFor="let direction of directions" value="{{direction.id}}">{{direction.directionName}}</option>
+                                            
+
+                                        </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col col-sm-2 col-form-label">Tựa đề: <span
+                                            style="color: red">(*)</span> </label>
+                                        <div class="col">
+                                            <input type="text" class="form-control form-control-sm" placeholder="" formControlName="title">
+                                            <span class="badge badge-danger" *ngIf="formPosts.controls.title.errors?.required && (formPosts.controls.title.touched || formPosts.controls.title.dirty)">
+                                            Không được để trống</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col col-sm-2 col-form-label">Nội dung: <span
+                                            style="color: red">(*)</span> </label>
+                                        <div class="col">
+                                            <textarea class="form-control" rows="3" formControlName="contentPost"></textarea>
+                                            <span class="badge badge-danger" *ngIf="formPosts.controls.contentPost.errors?.required && (formPosts.controls.contentPost.touched || formPosts.controls.contentPost.dirty)">
+                                            Không được để trống</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col col-sm-2 col-form-label">Giá: <span
+                                            style="color: red">(*)</span></label>
+                                        <div class="col">
+                                            <input type="text" class="form-control form-control-sm" placeholder="" formControlName="price">
+                                            <span class="badge badge-danger" *ngIf="formPosts.controls.price.errors?.required && (formPosts.controls.price.touched || formPosts.controls.price.dirty)">
+                                            Không được để trống</span>
+                                            <span class="badge badge-danger" *ngIf="formPosts.controls.price.dirty && formPosts.controls.price.errors?.pattern">Sai
+                                            định dạng dữ Liệu ! Chỉ được nhập số</span>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="defaultCheck1" formControlName="ableComposition">
+                                                <label class="form-check-label" for="defaultCheck1">
+                                                Giá có thể thỏa thuận
+                                            </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group row">
+                                        <label class="col col-sm-2 col-form-label">Hình Ảnh: <span
+                                            style="color: red">(*)</span> </label>
+                                        <div class="col">
+                                            <div>
+                                                <p class="font-italic" style="color: #FFBF00;">
+                                                    Chỉ hình ảnh của sản phẩm mới được duyệt. Lưu ý không dùng hình có dán kèm số điện thoại hoặc địa chỉ Website
+                                                </p>
+                                            </div>
+                                            <input id="file" type='file' (change)="onSelectFile($event)" [ngStyle]="{ 'background-image': 'url(' + imageUrls + ')',
+                                         'height':'150px' ,'width':'150px'}" formControlName="imagePost1">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <button [disabled]="formPosts.invalid" type="submit" class=" btn btn-sm btn-primary float-right col-3"><i
+                                                class="fas fa-check"> Đăng
+                                                tin</i></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- Nội dung đăng tin-->
+
+
+    </div>
+</div>

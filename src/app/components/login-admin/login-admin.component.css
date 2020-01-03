@@ -1,0 +1,68 @@
+#login {
+    background-color: rgb(236, 236, 236);
+    height: 625px;
+    min-height: 300px;
+}
+
+#login-small {
+   
+    background-color: white;
+    height: 40%;
+    width: 35%;
+    margin: auto;
+    margin-top: 8%;
+}
+
+#login-b {
+    width: 25%;
+    text-align: left;
+    margin-left: 5%;
+    margin-top: 1%;
+    float: left;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#login-input {
+    width: 55%;
+    text-align: right;
+    margin-right: 10%;
+    float: left;
+}
+
+#login-submit {
+    width: 85%;
+    text-align: right;
+    float: left;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(59, 76, 153);
+}
+
+#login-submit button {
+    background-color: rgb(59, 76, 153);
+    color: white;
+    border: solid 3px rgb(59, 76, 153);
+    border-radius: 2%;
+}
+
+#checkbox {
+    width: 55%;
+    text-align: center;
+    margin-left: 11%;
+    float: left;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#login-aa {
+    margin-left: 5%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#sigin {
+    /* position: absolute; */
+    margin-top: 250px;
+ margin-left: 38%;
+}
+
+#sigin a{
+    color: rgb(221, 129, 53);
+}

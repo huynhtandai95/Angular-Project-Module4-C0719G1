@@ -1,0 +1,129 @@
+<div class="container mt-5">
+    <div *ngIf="err">
+        <div class="alert alert-danger" role="alert">
+            <h5>Có Lỗi Khi đăng bài </h5>
+            <ul>
+                <li>{{err?.address}}</li>
+                <li>{{err?.area}}</li>
+                <li>{{err?.title}}</li>
+                <li>{{err?.contentPost}}</li>
+                <li>{{err?.price}}</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Nội dung đăng tin-->
+    <div class="content-post">
+        <h5>Nội dung tin </h5>
+        <hr>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="card border-0 col-10 float-right">
+                        <div class="card-body">
+                            <!-- <form> -->
+                            <div class="form-group row">
+                                <label for="inputPassword" class="col col-sm-2 col-form-label">Danh mục: </label>
+                                <div class="col">
+                                    {{category}}
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="inputPassword" class="col col-sm-2 col-form-label">Vùng miền:  </label>
+                                <div class="col">
+                                    {{region}}
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="inputPassword" class="col col-sm-2 col-form-label">Bạn Là: </label>
+                                <div class="col d-flex">
+                                    {{seller}}
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="inputPassword" class="col col-sm-2 col-form-label">Hướng: </label>
+                                <div class="col d-flex">
+                                    {{direction}}
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="inputPassword" class="col col-sm-2 col-form-label">[{{postOftype}}] </label>
+                                <div class="col d-flex">
+
+                                    {{data.form.title}}
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="inputPassword" class="col col-sm-2 col-form-label">Tình trạng: </label>
+                                <div class="col d-flex">
+
+                                    {{statusOfPost}}
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col col-sm-2 col-form-label">Địa chỉ:  </label>
+                                <div class="col">
+                                    {{data.form.address}}
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col col-sm-2 col-form-label">Diện tích: </label>
+                                <div class="col">
+                                    {{data.form.area}} m2
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="inputPassword" class="col col-sm-2 col-form-label">Giá: </label>
+                                <div class="col">
+                                    {{data.form.price}}
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label class="col col-sm-2 col-form-label">Nội dung:  </label>
+                                <div class="col">
+                                    {{data.form.contentPost}}
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group row">
+                                <label class="col col-sm-2 col-form-label">Hình Ảnh:  </label>
+                                <div class="col">
+                                    <img [src]="imageUrls" alt="Smiley face" width="150px" height="150px">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col d-flex">
+                                    <button type="submit" class="btn btn-sm btn-warning col-5" (click)="onClickBack()"><i class="fas fa-chevron-left"> Quay Lại</i></button>
+                                    <button type="submit" class="btn btn-sm btn-primary ml-auto col-5" (click)="onClickAdd()"><i class="fas fa-check" > Xác Nhận</i></button>
+                                </div>
+                            </div>
+                            <!-- </form> -->
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Nội dung đăng tin-->
+
+
+</div>

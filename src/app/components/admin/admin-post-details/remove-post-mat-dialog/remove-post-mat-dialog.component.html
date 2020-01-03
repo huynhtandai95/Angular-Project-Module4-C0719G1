@@ -1,0 +1,9 @@
+<h5>Duyệt bài đăng</h5>
+<hr>
+<p class="py-3">Bạn có chắc chắn muốn duyệt bài đăng này <span class="text-danger text-uppercase font-weight-bold">{{data.title}}</span>
+    không?</p>
+<hr>
+<div class="row d-flex justify-content-end mt-4">
+    <button class="btn btn-sm btn-danger mr-3" mat-dialog-close>Hủy bỏ</button>
+    <button mat-dialog-close class="btn btn-sm btn-primary mr-3" (click)="changeStatus()">Duyệt bài đăng</button>
+</div>

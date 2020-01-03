@@ -1,0 +1,8 @@
+<h5>Xác Nhận Xóa</h5>
+<hr>
+<p>Bạn có chắc chắn muốn xóa loại tin <span
+        class="text-danger font-weight-bold">{{data.postOfTypeData.postOfTypeName}}</span> không?</p>
+<div class="row d-flex justify-content-end mt-5">
+    <button mat-dialog-close class="btn btn-sm btn-warning mr-3" style="width: 100px;">Hủy bỏ</button>
+    <button (click)="deletePostOfType()" class="btn btn-sm btn-danger mr-4" style="width: 100px;">Xóa</button>
+</div>

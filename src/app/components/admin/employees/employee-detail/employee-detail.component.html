@@ -1,0 +1,93 @@
+<div class="container">
+    <div class="row">
+        <i class="fas fa-users-cog text-dark mr-2" style="font-size: 25px;"></i>
+        <h4>Thông tin thành viên</h4>
+    </div>
+    <div class="d-flex justify-content-end">
+        <button  *ngIf="isCheckEdit==false" class="btn btn-sm btn-danger" (click)="openEdit()" >Chỉnh sửa thông tin cá nhân</button>
+        <button *ngIf="isCheckEdit==true"  class="btn btn-sm btn-danger" (click)="closeEdit()">Đóng</button>
+        <button *ngIf="isCheck==false" class="btn btn-sm btn-primary ml-3" (click)="open()">Đổi mật khẩu</button>
+        <button *ngIf="isCheck==true" class="btn btn-sm btn-primary ml-3" (click)="close()">Đóng</button>
+    </div>
+    <hr>
+    <div *ngIf="success" class="align-text-center"><span style="color: red;">{{success}}</span></div>
+    <div class="row">
+        <div class="col-4">
+            <img src="/assets/img/logoUserDemo.png" class="img-thumbnail" alt="Cinque Terre">
+        </div>
+        <div class="col-8 px-5">
+                <div *ngIf="isCheckEdit==true">
+                        <div class="container">
+                            <h2>Sửa thông tin cá nhân</h2>
+                            <form action="" (ngSubmit)="onClickEdit()" [formGroup]="formEdit">
+                                <div class="form-group">
+                                    <label for="fullName">Họ và Tên</label>
+                                    <input type="text" class="form-control" id="email" placeholder="Họ và Tên"
+                                      formControlName="fullName">
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">Địa chỉ</label>
+                                    <input type="text" class="form-control" id="address" placeholder="Nhập địa chỉ"
+                                        formControlName="address">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phoneNumber">Số điện thoại</label>
+                                    <input type="text" class="form-control" id="phoneNumber" placeholder="Nhập số điện thoái"
+                                        formControlName="phoneNumber">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+                            </form>
+                        </div>
+                    </div>
+
+            <div *ngIf="isCheck==true">
+                <div class="container">
+                    <h2>Đổi mật khẩu</h2>
+                    <form action="" (ngSubmit)="onClickChangePassword()" [formGroup]="formEdit">
+                        <div class="form-group">
+                            <label for="passwordOld">Mật khẩu cũ</label>
+                            <input type="password" class="form-control" id="passwordOld" placeholder="nhập mật khẩu cũ"
+                                 formControlName="passwordOld">
+                        </div>
+                        <div class="form-group">
+                            <label for="passwordNew">Mật khẩu mới:</label>
+                            <input type="password" class="form-control" id="passwordNew" placeholder="nhập mật khẩu mới"
+                                formControlName="passwordNew">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPasswordNew">Nhập lại mật khẩu mới:</label>
+                            <input type="password" class="form-control" id="confirmPasswordNew" placeholder="nhập lại mật khẩu mới"
+                               formControlName="confirmPasswordNew">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+                    </form>
+                </div>
+            </div>
+            <div *ngIf="isCheck==false&&isCheckEdit==false">
+                <table class="table table-striped table-sm">
+                    <tbody>
+                        <tr>
+                            <td>Họ và tên: </td>
+                            <td>{{employee.fullName}}</td>
+                        </tr>
+                        <tr>
+                            <td>Địa chỉ:</td>
+                            <td>{{employee.address}}</td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td>{{employee.email}}</td>
+                        </tr>
+                        <tr>
+                            <td>Số điện thoại:</td>
+                            <td>{{employee.phoneNumber}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>

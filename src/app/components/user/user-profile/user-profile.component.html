@@ -1,0 +1,187 @@
+<div class="container-fluid d-flex justify-content-center" style="background-color:#f4f4f4;">
+    <div class="container mt-5 mb-2">
+        <!-- Start Card Thông tin Cá Nhân -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-3">
+                    <div class="row no-gutters">
+                        <div class="col-md-2 mt-2">
+                            <img src="https://cdn.bootstrapsnippet.net/assets/image/dummy-avatar.jpg" class="card-img rounded-circle" alt="..." width="30">
+                        </div>
+                        <div class="col-md-5">
+                            <div class="card-body border border-left-0 border-top-0 border-bottom-0">
+                                <h3 class="card-title">{{userDetail.fullName}}</h3>
+                                <div class="form-group row">
+                                    <label class="col col-sm-4 ">Email: </label>
+                                    <div class="col">
+                                        <span> {{userDetail.email}}</span>
+                                    </div>
+
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col col-sm-4 ">Địa Chỉ : </label>
+                                    <div class="col">
+                                        <span> {{userDetail.address}}</span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col col-sm-4 ">Số Điện Thoại: </label>
+                                    <div class="col">
+                                        <span> {{userDetail.phoneNumber}}</span>
+                                    </div>
+                                </div>
+
+
+                                <div>
+                                    <button type="button" class="btn btn-sm btn-primary" routerLink="/editusers">Chỉnh sửa thông tin</button>
+                                    <button type="button" class="btn btn-sm btn-primary ml-3" routerLink="/changepassword">Đổi mật khẩu</button>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-5">
+                            <div class="card-body mt-4">
+                                <div class="form-group row">
+                                    <label class="col col-sm-5 ">Ngày Tham gia: </label>
+                                    <div class="col">
+                                        <span> {{userDetail.created_at | date: 'y-M-d' }}</span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col col-sm-5 ">Người theo dõi: </label>
+                                    <div class="col">
+                                        <span> 0 </span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col col-sm-5 ">Lượt Đánh Giá: </label>
+                                    <div class="col">
+                                        <span> 0 </span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col col-sm-5 ">Đã cung cấp : </label>
+                                    <div class="col">
+                                        <span> 
+                                        <div class="icon-contact">
+                                            <i class="fab fa-facebook"></i>
+                                            <i class="fas fa-envelope-open-text"></i>
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <i class="fas fa-phone-volume"></i>
+                                        </div>
+                                       
+                                    </span>
+                                    </div>
+                                </div>
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Card Thông tin Cá Nhân -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        Danh sách bài đăng
+                    </div>
+                    <div class="card-body">
+                        <div class="container">
+                            <div class="row d-flex justify-content-between align-items-center my-2">
+
+                                <h3><i class="fas fa-clipboard-list"></i> Danh sách các bài đã đăng</h3>
+                                <!-- Start Form Search Tite Post -->
+                                <form [formGroup]="formSearch" (ngSubmit)="onClickSearch()">
+                                    <div class="d-flex">
+                                        <input type="text" class="form-control form-control-sm mr-3" style="width: 200px;" placeholder="Nhập tiêu đề bài đăng" formControlName="searchWord">
+                                        <button type="submit" class="btn btn-sm btn-success"><i class="fas fa-search"></i> Tìm kiếm</button>
+
+                                    </div>
+                                </form>
+                                <!-- End Form Search Tite Post -->
+                            </div>
+                            <div class="row">
+                                <div class="col p-0">
+                                    <button type="submit" class="btn btn-sm btn-warning" [routerLink]="['/post/add']" routerLinkActive="router-link-active">
+                                    <i class="fas fa-plus-circle"></i>
+                                     Đăng Tin Mới
+                                 </button>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <table class="table table-striped table-sm mt-3">
+                                    <thead>
+                                        <tr>
+                                            <th>Tiêu đề</th>
+                                            <th>Loại bài viết</th>
+                                            <th>Danh mục</th>
+                                            <th>Ngày đăng</th>
+                                            <th>Trạng thái</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr *ngFor="let postByUser of PostByUser | paginate: { itemsPerPage: 5, currentPage: p }">
+                                            <td>{{ postByUser.title }}</td>
+                                            <td>{{ postByUser.post_of_types.postOfTypeName }}</td>
+                                            <td>{{ postByUser.categories.categoryName }}</td>
+                                            <td>{{ postByUser.created_at | date: 'y-M-d' }}</td>
+                                            <td>{{ postByUser.post_availability_status.availability_status }}</td>
+                                            <td>
+                                                <i class="fas fa-edit" [routerLink]="['/user/profile/post/', postByUser.id, 'edit']" routerLinkActive="router-link-active" data-toggle="tooltip" title="Chỉnh sửa"></i>
+                                            </td>
+                                            <td>
+                                                <i class="fas fa-trash-alt text-danger" data-toggle="tooltip" title="Xóa Bài Viết" (click)="deletePost(postByUser.id)"></i>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                                <div *ngIf="PostByUser?.length == 0" class="offset-3">
+                                    <div class=" alert alert-danger " role="alert ">
+                                        Xin lỗi! Chúng tôi không tìm thấy bài đăng nào dành cho bạn!
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- //Load Trang bình thường -->
+                            <div *ngIf="searchClick === false && PostByUser?.length > 0 " class="row d-flex justify-content-end mt-3">
+                                <ul class="pagination">
+                                    <li (click)=goToPreviousPage() class="page-item"><a class="page-link">Previous</a></li>
+                                    <ng-container *ngFor="let paginationArray of paginationArrays">
+                                        <li (click)="goToPageOfNumber(paginationArray)" class="page-item"><a class="page-link">{{paginationArray}}</a>
+                                        </li>
+                                    </ng-container>
+                                    <li (click)=goToNextPage() class="page-item"><a class="page-link">Next</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- //Nếu Click Tìm Kiếm -->
+                            <div *ngIf="searchClick === true && PostByUser?.length > 0" class="row d-flex justify-content-end mt-3">
+                                <ul class="pagination">
+                                    <li (click)=goToPreviousPage() class="page-item"><a class="page-link">Previous</a></li>
+                                    <ng-container *ngFor="let searchPaginationArray of searchPaginationArrays">
+                                        <li (click)="goToPageSearchOfNumber(searchPaginationArray)" class="page-item"><a [ngStyle]="searchPaginationArrays===selectedPage? backgroundColorOfSelectedPage : backgroundColorOfNotSelectedPage" class="page-link">{{searchPaginationArray}}</a>
+                                        </li>
+                                    </ng-container>
+                                    <li (click)=goToNextPage() class="page-item"><a class="page-link">Next</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

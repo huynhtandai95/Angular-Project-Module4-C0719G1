@@ -1,0 +1,25 @@
+.icon-contact i {
+    margin: 2%;
+    color: #088A08;
+}
+
+i {
+    cursor: pointer;
+}
+
+.card-text {
+    font-weight: 300;
+}
+
+.row {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.form-group {
+    margin-bottom: 0.1rem !important;
+}
+
+.form-group label {
+    font-weight: 500;
+}

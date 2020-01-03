@@ -1,0 +1,9 @@
+<h5 class="text-center">Bạn có muốn khóa <span class="text-danger text-uppercase">{{userName}}</span> không?</h5>
+<hr>
+<h6>Lý do:</h6>
+<textarea class="form-control" name="" id="" cols="50" rows="3" placeholder="Ví dụ: Comment thiếu văn hóa"
+    [(ngModel)]="reasonLockUserAccount"></textarea>
+<div class="row d-flex justify-content-end mt-4">
+    <button class="btn btn-sm btn-primary mr-3" mat-dialog-close>Hủy bỏ</button>
+    <button class="btn btn-sm btn-danger mr-3" (click)="lockUserAccount()">Khóa tài khoản</button>
+</div>

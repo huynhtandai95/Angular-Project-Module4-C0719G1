@@ -1,0 +1,86 @@
+<div class="container">
+    <div class="row">
+        <i class="fas fa-users-cog text-dark mr-2" style="font-size: 25px;"></i>
+        <h4>Thông tin thành viên</h4>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-4">
+            <img src="/assets/img/logoUserDemo.png" class="img-thumbnail" alt="Cinque Terre">
+        </div>
+        <div class="col-8 px-5">
+            <table class="table table-striped table-sm">
+                <tbody>
+                    <tr>
+                        <td>Họ và tên: </td>
+                        <td>{{user.fullName}}</td>
+                    </tr>
+                    <tr>
+                        <td>Địa chỉ:</td>
+                        <td>{{user.address}}</td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td>{{user.email}}</td>
+                    </tr>
+                    <tr>
+                        <td>Số điện thoại:</td>
+                        <td>{{user.phoneNumber}}</td>
+                    </tr>
+                    <tr>
+                        <td>Trạng thái:</td>
+                        <td>
+                            <span *ngIf="user.statusOfUserId==1"
+                                class="text-primary font-weight-bold">{{user.status_of_users.statusOfUserName}}</span>
+                            <span *ngIf="user.statusOfUserId==2"
+                                class="text-danger font-weight-bold">{{user.status_of_users.statusOfUserName}}</span>
+                            <span *ngIf="user.statusOfUserId==3"
+                                class="text-warning font-weight-bold">{{user.status_of_users.statusOfUserName}}</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button *ngIf="user.statusOfUserId==1 || user.statusOfUserId==3" class="btn btn-sm btn-danger"
+                (click)="openDialog()">Khóa tài
+                khoản</button>
+            <button *ngIf="user.statusOfUserId==2" class="btn btn-sm btn-primary" (click)="openDialog2()">Bỏ khóa
+                tài khoản</button>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <h4>Danh sách các bài viết đã đăng:</h4>
+        <table class="table table-striped table-sm mt-3">
+            <thead>
+                <tr>
+                    <th>Mã bài đăng</th>
+                    <th>Loại bài viết</th>
+                    <th>Danh mục</th>
+                    <th>Ngày đăng</th>
+                    <th>Trạng thái bài đăng</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let post of posts">
+                    <td> <span class="ml-3">{{post.id}}</span> </td>
+                    <td>{{post.post_of_types.postOfTypeName}}</td>
+                    <td>{{post.categories.categoryName}}</td>
+                    <td>{{post.created_at | date: 'dd/MM/yyyy'}}</td>
+                    <td>{{post.post_availability_status.availability_status}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row mt-3 d-flex justify-content-end">
+        <ul class="pagination">
+            <li (click)="goToPreviousPage(user.id)" class="page-item"><a class="page-link">Previous</a></li>
+            <ng-container *ngFor="let paginationArray of paginationArrays">
+                <li (click)="goToPageOfNumber(paginationArray, user.id)" class="page-item"><a class="page-link"
+                        [ngStyle]="paginationArray===selectedPage? backgroundColorOfSelectedPage : backgroundColorOfNotSelectedPage">{{paginationArray}}</a>
+                </li>
+            </ng-container>
+            <li (click)="goToNextPage(user.id)" class="page-item"><a class="page-link">Next</a></li>
+        </ul>
+    </div>
+</div>

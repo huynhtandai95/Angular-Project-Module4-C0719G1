@@ -1,0 +1,15 @@
+#cardTop5 {
+    background-color: #F9CBCB !important;
+    color: #D04848;
+    font-weight: bold;
+}
+
+#cardDirectionFavourite {
+    background-color: #b6d8f7 !important;
+    color: #275cfb;
+    font-weight: bold;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}

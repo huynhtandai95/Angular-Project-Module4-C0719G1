@@ -1,0 +1,45 @@
+.signin-big {
+    background-color: rgb(236, 236, 236);    
+    /* height: 625px; */
+    min-height: 300px;
+}
+
+.singin-small {
+    border: solid 1px blue;
+    background-color: white;
+    /* position: absolute; */
+    width: 60%;
+    height: 83%;
+    margin-left: 20%;
+    margin-right: 20%;
+    /* margin-top: 3%; */
+    min-width: 50%;
+    border-radius: 1%;
+}
+
+#singin-input {
+    text-align: left;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+#singin-button {
+    text-align: right;
+    margin-right: 15%;
+    margin-top: 5%;
+}
+#singin-button button {
+    background-color: rgb(59, 76, 153);
+    color: white;
+    border: solid 3px rgb(59, 76, 153);
+    border-radius: 2%;
+}
+.signin-h2 h2{
+    /* position: absolute; */
+    margin-top: 2%;
+    margin-left: 6%;
+
+}
+#login{
+    color: rgb(221, 129, 53);
+}
